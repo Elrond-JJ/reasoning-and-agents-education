@@ -2,80 +2,138 @@
 
 This repository contains notebooks and teaching materials for the EBU6505 Reasoning and Agents module.
 
-## Getting Started
+The notebooks are designed to be read like a multimodal textbook: read the explanations, inspect the code, complete the exercises, and run cells to learn by doing.
 
-### Prerequisites
+## Beginner Quick Start
 
-- Python 3.11
-- Terminal/Command Prompt
-- VS Code (recommended)
+Follow these steps in order.
 
-### Setting up the Virtual Environment with `uv`
+### 1. Prerequisites
 
-[uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver that we'll use to create our virtual environment.
+- Python 3.12
+- Git
+- Terminal (or Command Prompt / PowerShell)
+- Visual Studio Code (recommended)
 
-1. **Install `uv`** (if not already installed):
-    ```bash
-    # On macOS and Linux.
-    curl -LsSf https://astral.sh/uv/install.sh | sh
-    ```
+### 2. Fork first (recommended for students)
 
-    ```bash
-    # On Windows.
-    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-    ```
+Fork this repository to your own GitHub account before cloning. This gives you a personal copy in your own GitHub account where you can add your own notes, experiments, and solutions without affecting the original repository.
 
-2. **Create a virtual environment (under the project directory)**:
-    ```bash
-    uv venv
-    ```
+1. Open this repository on GitHub.
+2. Click Fork.
+3. Choose your own GitHub account as the owner.
 
-3. **Activate the virtual environment**:
-    - On Windows:
-      ```bash
-      .venv\Scripts\activate
-      ```
-    - On macOS/Linux:
-      ```bash
-      source .venv/bin/activate
-      ```
+### 3. Clone your fork
 
-4. **Install required packages**:
-    ```bash
-    uv sync
-    ```
+Clone your forked repository (replace `<your-username>`).
 
-## Using the Notebooks
+Recommended (SSH): better security and more stable authentication for regular GitHub use.
 
-### Running Jupyter Notebooks
+> [!NOTE]
+> New to SSH? If you have not set up an SSH key for GitHub before, follow GitHub's official guide first:
+> [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-1. Activate your virtual environment (see above)
-2. Use VS Code to open the project folder and open the notebooks. (Recommended)
-3. Or, Navigate to the project folder, Launch Jupyter in the project folder:
-    ```bash
-    jupyter notebook
-    ```
-4. Select the notebook you want to open
+```bash
+git clone git@github.com:<your-username>/reasoning-and-agents-education.git
+cd reasoning-and-agents-education
+```
 
-### Running Slides
+Alternative (HTTPS):
 
-The presentation slides can be viewed in two ways:
+```bash
+git clone https://github.com/<your-username>/reasoning-and-agents-education.git
+cd reasoning-and-agents-education
+```
 
-1. **Double-click Method**: (Recommended)
-    - Simply double-click on any slide file (`.slides.html`) in your file explorer
-    - Your default browser will open the slides in presentation mode
+### 4. Create local environment file
 
-2. **From Jupyter**:
-    - Open the corresponding notebook in Jupyter
-    - Select "File" > "Export Notebook As" > "Reveal.js Slides"
-    - Open the generated HTML file
+Create your local environment file from the example:
+
+```bash
+cp .env.example .env
+```
+
+On Windows (PowerShell):
+
+```bash
+Copy-Item .env.example .env
+```
+
+No API key is required by default. The notebooks are configured to use local open-source models served by Ollama.
+
+### 5. Install `uv` (if needed)
+
+[uv](https://github.com/astral-sh/uv) is used to create the local environment and install dependencies.
+
+On macOS/Linux:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+On Windows (PowerShell):
+
+```bash
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### 6. Create the environment and install dependencies
+
+From the project root:
+
+```bash
+uv sync
+```
+
+### 7. Activate the virtual environment
+
+On macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 8. Open and run notebooks
+
+1. Open the project folder in VS Code.
+2. Open any notebook (`.ipynb`).
+3. Select the Python kernel before running cells.
+4. Run cells from top to bottom.
+
+Important: if the wrong kernel is selected, notebook cells may fail even when setup is correct.
+
+## How to Study with These Materials
+
+- Start with introductory notebooks and follow the module order (`L00`, `L01`, `L02`, ...).
+- Read each notebook carefully as course text, not only as executable code.
+- Use your fork to save your own notes directly in notebooks.
+
+## Optional: View as Slides
+
+All lesson notebooks (with a name started with "L") can also be viewed as slides.
+
+Run this command from the project directory:
+
+```bash
+jupyter nbconvert --to slides --SlidesExporter.reveal_scroll=True <Lxx_notebook_name>.ipynb
+```
+
+Then open the generated `.slides.html` file in a browser.
 
 ## Troubleshooting
 
 If you encounter issues:
 
-- Ensure your virtual environment is activated
-- Use student forum or contact the lecturer.
+- Confirm that the virtual environment is activated.
+- Confirm that you selected the correct notebook kernel.
+- Re-run `uv sync` if dependencies are missing.
+- Use the student forum or contact the lecturer.
 
 ## License
 

@@ -13,6 +13,13 @@ wheels/
 # Virtual environments
 .venv
 
+# env files
+.env
+
 # System-generated files
 .DS_Store
 Thumbs.db
+
+# Evaluation related files
+data/
+output/
