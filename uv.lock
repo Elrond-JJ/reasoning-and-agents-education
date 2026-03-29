@@ -3988,7 +3988,7 @@ wheels = [
 ]
 
 [[package]]
-name = "reasoning-and-agents-notebooks"
+name = "reasoning-and-agents-education"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
