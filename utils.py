@@ -145,7 +145,7 @@ def get_completion(system_prompt=None, user_prompt=None, messages=None, model_ap
             content = _format_message_content(message)
             return content, response
     except Exception as e:
-        return f"An error occurred: {e}"
+        return f"An error occurred: {e}", None
 
 
 def get_n_completions(
